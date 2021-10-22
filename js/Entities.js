@@ -108,14 +108,14 @@ class Player extends Entity {
         });
     }
 
-    onSuccessful() {
+    onSuccessful(thiss) {
         this.removeInteractive();
         this.setData("isShooting", false);
         this.scene.playSound("playerFlySound");
         this.scene.time.addEvent({
             delay: 1000,
             callback: function () {
-                this.scene.player.body.velocity.y = -1500;
+                this.scene.cameras.main.width / 2, this.scene.cameras.main.height / 1.3;
             },
             callbackScope: this,
             loop: false,
@@ -123,16 +123,16 @@ class Player extends Entity {
         this.scene.time.addEvent({
             delay: 2000,
             callback: function () {
-                this.scene.cameras.main.fadeOut(500, 0, 0, 0);
-                this.scene.cameras.main.once(Phaser.Cameras.Scene2D.Events.FADE_OUT_COMPLETE, (cam, effect) => {
-                    this.scene.scene.start("SceneEndCard");
-                });
+                this.scene.tapToPlay.setVisible(true);
             },
             callbackScope: this,
             loop: false,
         });
         this.scene.playerLasers.clear(true, true);
         this.scene.smallPresents.clear(true, true);
+        this.scene.input.on("pointerdown", function () {
+            console.log("GOTOSTORE");
+        })
     }
 
     createBullet(scene, x, y, stepBullet) {

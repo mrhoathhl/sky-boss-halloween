@@ -344,7 +344,8 @@ class ScenePlayGame extends Phaser.Scene {
                 playerMove.moveTo(this.cameras.main.width / 2, this.cameras.main.height / 1.3);
                 isPro1Dead = false;
                 isWin = true;
-                this.player.onSuccessful();
+                this.player.onSuccessful(this);
+                this.tapToPlay.setVisible(true);
             }
 
             this.background.tilePositionY -= 4;
@@ -363,7 +364,7 @@ class ScenePlayGame extends Phaser.Scene {
                 this.thrustle2.setVisible(false);
                 this.shipHalo.setVisible(false);
                 this.time.paused = false;
-                this.tapToPlay.setVisible(false);
+                // this.tapToPlay.setVisible(false);
                 this.tapToPlay.data.set("isPress", false);
             }
 
@@ -371,7 +372,7 @@ class ScenePlayGame extends Phaser.Scene {
                 bossMove.stop();
                 this.time.paused = false;
                 this.tapToPlay.data.set("isPress", false);
-                this.tapToPlay.setVisible(false);
+                this.tapToPlay.setVisible(true);
                 this.shipHalo.setVisible(false);
             }
             for (var i = 0; i < this.protectorLasers.getChildren().length; i++) {

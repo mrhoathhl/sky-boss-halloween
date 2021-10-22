@@ -13,28 +13,15 @@ class SceneEndCard extends Phaser.Scene {
             this.haloChest = new Assets(this, cameras.width / 2, cameras.height / 3 + this.menuReward.displayHeight / 2.4, "sprShipHalo").setDepth(2).setScale(1.3);
             this.chestReward = new Assets(this, this.haloChest.x, this.haloChest.y + 20, "sprChestReward").setDepth(2);
             this.nextLevelBtn = new Assets(this, cameras.width / 2, cameras.height / 3 + this.menuReward.displayHeight / 1.6, "sprNextLevelBtn").setDepth(2).setInteractive();
-            this.nextLevelBtn.on(
-                "pointerdown",
-                function(pointer) {
-                    //code//;
-                },
-                this
-            );
         } else if (isLose) {
             this.playSound("tryAgainSound");
             this.menuReward = new Assets(this, cameras.width / 2, cameras.height / 3, "sprFailBattle").setDepth(2);
             this.tryAgainBtn = new Assets(this, cameras.width / 2, cameras.height / 3 + this.menuReward.displayHeight / 1.6, "sprTryAgainBtn").setDepth(2).setInteractive();
-            this.tryAgainBtn.on(
-                "pointerdown",
-                function(pointer) {
-                    //code//;
-                },
-                this
-            );
         }
-        this.snow = new Assets(this, cameras.width / 2, cameras.height - 239, "sprSnow").setDepth(1);
-        this.input.on("pointerdown", function() {
+        // this.snow = new Assets(this, cameras.width / 2, cameras.height - 239, "sprSnow").setDepth(1);
+        this.input.on("pointerdown", function () {
             !Sounds["bgSound"].playing() ? Sounds["bgSound"].play() : "";
+            console.log("GOTOSTORE");
         });
 
         this.sound.pauseOnBlur = false;

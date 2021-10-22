@@ -45,46 +45,46 @@ class Preload extends Phaser.Scene {
         this.anims.create({
             key: "sprPlayerMotion",
             frames: this.anims.generateFrameNumbers("sprPlayer", {
-                start: 6,
-                end: 17,
+                start: 0,
+                end: 0,
             }),
-            frameRate: 16,
+            frameRate: 0,
             repeat: -1,
         });
         this.anims.create({
             key: "sprPlayerTurnMotion",
             frames: this.anims.generateFrameNumbers("sprPlayer", {
                 start: 0,
-                end: 1,
+                end: 0,
             }),
-            frameRate: 16,
+            frameRate: 0,
             repeat: -1,
         });
         this.anims.create({
             key: "sprPlayerHittedMotion",
             frames: this.anims.generateFrameNumbers("sprPlayer", {
-                start: 1,
-                end: 5,
+                start: 0,
+                end: 0,
             }),
-            frameRate: 16,
+            frameRate: 0,
             repeat: 0,
         });
         this.anims.create({
             key: "sprBossMotion",
             frames: this.anims.generateFrameNumbers("sprBoss", {
                 start: 0,
-                end: 47,
+                end: 40,
             }),
-            frameRate: 24,
+            frameRate: 15,
             repeat: -1,
         });
         this.anims.create({
             key: "sprBossDeadMotion",
             frames: this.anims.generateFrameNumbers("sprBoss", {
-                start: 48,
-                end: 51,
+                start: 37,
+                end: 40,
             }),
-            frameRate: 24,
+            frameRate: 15,
             repeat: 6,
         });
         this.anims.create({
@@ -108,7 +108,7 @@ class Preload extends Phaser.Scene {
         this.anims.create({
             key: "sprProtectorBossMotion",
             frames: this.anims.generateFrameNumbers("sprProtectorBoss"),
-            frameRate: 24,
+            frameRate: 15,
             repeat: -1,
         });
         this.cameras.main.fadeOut(0, 0, 0, 0);
@@ -202,8 +202,8 @@ class Preload extends Phaser.Scene {
 
         sprBossImg.onload = () => {
             this.textures.addSpriteSheet("sprBoss", sprBossImg, {
-                frameWidth: 185,
-                frameHeight: 263,
+                frameWidth: 183,
+                frameHeight: 238,
             });
             nLoaded++;
         };
@@ -230,7 +230,7 @@ class Preload extends Phaser.Scene {
         protectorBossImg.onload = () => {
             this.textures.addSpriteSheet("sprProtectorBoss", protectorBossImg, {
                 frameWidth: 192,
-                frameHeight: 150,
+                frameHeight: 264,
             });
             nLoaded++;
         };
